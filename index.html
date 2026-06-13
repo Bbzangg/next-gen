@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Mobile Retail - Hệ sinh thái Apple chính hãng</title>
+    <meta name="description" content="Hệ sinh thái Apple chính hãng vận hành trên nền tảng Odoo ERP. Mua sắm iPhone 17 Pro, MacBook Pro M5, iPad M4 chính hãng bảo hành toàn diện.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav class="navbar" id="main-navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo" id="store-logo">
+                 <span>NEXTGEN</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link-item active" data-page="home">Trang chủ</a></li>
+                <li><a href="#category/iPhone" class="nav-link-item" data-page="category" data-cat="iPhone">iPhone</a></li>
+                <li><a href="#category/Macbook" class="nav-link-item" data-page="category" data-cat="Macbook">MacBook</a></li>
+                <li><a href="#category/iPad" class="nav-link-item" data-page="category" data-cat="iPad">iPad</a></li>
+                <li><a href="#category/Phụ kiện" class="nav-link-item" data-page="category" data-cat="Phụ kiện">Phụ kiện</a></li>
+                <li><a href="#category/Combo bán lẻ" class="nav-link-item" data-page="category" data-cat="Combo bán lẻ">Combo</a></li>
+                <li><a href="#contact" class="nav-link-item" data-page="contact">Liên hệ</a></li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Search bar in navbar -->
+                <div class="nav-search-container">
+                    <input type="text" id="nav-search-input" placeholder="Tìm sản phẩm...">
+                    <button class="search-trigger-btn" aria-label="Tìm kiếm">Tìm</button>
+                </div>
+                <!-- Dark mode button -->
+                <button class="nav-btn" id="theme-toggle-btn" title="Chuyển chế độ Sáng/Tối">
+                    <span id="theme-icon-indicator">Giao diện</span>
+                </button>
+                <!-- Odoo Admin button -->
+                <button class="nav-btn" id="admin-toggle-btn" title="Hệ thống Odoo ERP (Quản trị)">
+                    ERP
+                </button>
+                <!-- Cart button -->
+                <a href="#cart" class="nav-btn" id="cart-nav-btn" title="Giỏ hàng">
+                    Giỏ <span class="cart-count" id="cart-item-count">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Views Container -->
+    <div id="pages-container">
+
+        <!-- 1. HOMEPAGE VIEW -->
+        <section id="home-page" class="page-view">
+            <!-- Hero Banner Slider -->
+            <div class="hero-slider">
+                <div class="slider-container" id="slider-container">
+                    <!-- Slide 1 -->
+                    <div class="slide slide-promo">
+                        <a href="#category/iPhone" class="slide-promo-card" aria-label="Khám phá iPhone chính hãng">
+                            <img src="image/image.png" alt="Banner iPhone chính hãng" class="slide-promo-image">
+                            <div class="slide-promo-caption">
+                                <span class="slide-promo-badge">Hero Campaign</span>
+                                <strong>Xem iPhone</strong>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <span class="slide-tag">Hiệu năng tối thượng</span>
+                            <h2 class="slide-title">MacBook Pro 14" M5</h2>
+                            <p class="slide-subtitle">Sức mạnh quái vật hỗ trợ Apple Intelligence toàn diện. Vận hành kho an toàn.</p>
+                            <div class="slide-buttons">
+                                <a href="#product/MB_APL_PROM5_16_512" class="btn btn-primary">Mua ngay</a>
+                                <a href="#category/Macbook" class="btn btn-secondary">Khám phá MacBook</a>
+                            </div>
+                        </div>
+                        <div class="slide-image-container">
+                            <div class="slide-glow" style="background: radial-gradient(circle, rgba(175, 82, 222, 0.18) 0%, rgba(41, 151, 255, 0.05) 50%, rgba(0,0,0,0) 70%);"></div>
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1000&auto=format&fit=crop" alt="MacBook M5" class="slide-image">
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-arrow slider-arrow-prev" id="slider-prev-btn">Trước</button>
+                <button class="slider-arrow slider-arrow-next" id="slider-next-btn">Sau</button>
+                <div class="slider-dots" id="slider-dots-container"></div>
+            </div>
+
+            <!-- Campaign Banners -->
+            <div class="container section promo-banner-section">
+                <div class="section-heading-inline">
+                    <h3 class="section-title">Chiến dịch nổi bật</h3>
+                    <p class="section-subtitle">Các ưu đãi đang chạy được gom thành một cụm riêng để khách dễ nhìn và dễ bấm hơn.</p>
+                </div>
+                <div class="promo-banner-stack">
+                    <a href="#product/MB_APL_PROM5_16_512" class="promo-banner-card promo-banner-card-large" data-campaign="macbook-m5">
+                        <div class="promo-banner-meta">
+                            <span class="promo-banner-kicker">MacBook Campaign</span>
+                            <span class="promo-banner-cta">Xem MacBook</span>
+                        </div>
+                        <img src="image/banner/macbook-pro-m5-banner.png" alt="Banner quảng cáo MacBook Pro 14 M5" loading="lazy">
+                    </a>
+                    <div class="promo-banner-grid">
+                        <a href="#product/BOM-001" class="promo-banner-card" data-campaign="iphone-upgrade">
+                            <div class="promo-banner-meta">
+                                <span class="promo-banner-kicker">Trade-in Highlight</span>
+                                <span class="promo-banner-cta">Nâng cấp ngay</span>
+                            </div>
+                            <img src="image/banner/iphone-upgrade-banner.png" alt="Banner quảng cáo thu cũ đổi mới iPhone 17 Pro Max" loading="lazy">
+                        </a>
+                        <a href="#product/BOM-003" class="promo-banner-card" data-campaign="back-to-school">
+                            <div class="promo-banner-meta">
+                                <span class="promo-banner-kicker">Back To School</span>
+                                <span class="promo-banner-cta">Xem combo học tập</span>
+                            </div>
+                            <img src="image/banner/back-to-school-banner.png" alt="Banner quảng cáo back to school iPad Air M4" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Categories Circular -->
+            <div class="container section">
+                <h3 class="section-title text-center">Danh mục nổi bật</h3>
+                <div class="featured-categories-grid">
+                    <a href="#category/iPhone" class="cat-circle-card">
+                        <span>iPhone</span>
+                    </a>
+                    <a href="#category/Macbook" class="cat-circle-card">
+                        <span>MacBook</span>
+                    </a>
+                    <a href="#category/iPad" class="cat-circle-card">
+                        <span>iPad</span>
+                    </a>
+                    <a href="#category/Phụ kiện" class="cat-circle-card">
+                        <span>Phụ kiện</span>
+                    </a>
+                    <a href="#category/Combo bán lẻ" class="cat-circle-card">
+                        <span>Combo</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Best Sellers Grid -->
+            <div class="container section">
+                <h3 class="section-title text-center">Sản phẩm bán chạy nhất</h3>
+                <div class="products-grid" id="homepage-best-sellers">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+
+            <!-- Brand Values Section -->
+            <div class="brand-values-section">
+                <div class="container">
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <h4>Apple chính hãng</h4>
+                            <p>NextGen cam kết cung cấp các sản phẩm Apple chính hãng 100% nguyên seal.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Tồn kho thời gian thực</h4>
+                            <p>Số lượng tồn kho và IMEI được đồng bộ hóa tức thì từ hệ thống Odoo ERP.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Trả góp 0%</h4>
+                            <p>Hỗ trợ trả góp lãi suất 0% qua thẻ tín dụng và các công ty tài chính.</p>
+                        </div>
+                        <div class="value-card">
+                            <h4>Đồng bộ Odoo ERP</h4>
+                            <p>Mọi đơn hàng được tạo tự động đẩy trực tiếp thành SO, xuất kho và lập hóa đơn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 2. CATALOG VIEW (CATEGORY PAGE WITH FILTER) -->
+        <section id="catalog-page" class="page-view" style="display:none;">
+            <div class="container">
+                <div class="catalog-layout">
+                    <!-- Left Sidebar Filters -->
+                    <aside class="catalog-sidebar">
+                        <div class="filter-group">
+                            <h4>Thương hiệu</h4>
+                            <label class="filter-checkbox-label">
+                                <input type="checkbox" checked disabled> Apple
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Khoảng giá</h4>
+                            <label class="filter-checkbox-label">
+                                <input type="checkbox" class="price-filter-cb" value="under20"> Dưới 20 triệu
+                            </label>
+                            <label class="filter-checkbox-label">
+                                <input type="checkbox" class="price-filter-cb" value="20to30"> 20 - 30 triệu
+                            </label>
+                            <label class="filter-checkbox-label">
+                                <input type="checkbox" class="price-filter-cb" value="30to40"> 30 - 40 triệu
+                            </label>
+                            <label class="filter-checkbox-label">
+                                <input type="checkbox" class="price-filter-cb" value="over40"> Trên 40 triệu
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Dung lượng</h4>
+                            <label class="filter-checkbox-label">
+                                <input type="checkbox" class="storage-filter-cb" value="128GB"> 128GB
+                            </label>
+                            <label class="filter-checkbox-label">
+                                <input type="checkbox" class="storage-filter-cb" value="256GB"> 256GB
+                            </label>
+                            <label class="filter-checkbox-label">
+                                <input type="checkbox" class="storage-filter-cb" value="512GB"> 512GB
+                            </label>
+                            <label class="filter-checkbox-label">
+                                <input type="checkbox" class="storage-filter-cb" value="1TB"> 1TB
+                            </label>
+                        </div>
+                        
+                        <button class="btn btn-secondary reset-filters-btn" style="width: 100%; border-radius: 8px; font-size: 0.8rem;">
+                            Xóa tất cả bộ lọc
+                        </button>
+                    </aside>
+
+                    <!-- Right Products Grid Area -->
+                    <main class="catalog-content">
+                        <div class="catalog-header-bar">
+                            <h2 id="catalog-title">Tất cả sản phẩm</h2>
+                            <div class="catalog-sort">
+                                <select id="catalog-sort-select">
+                                    <option value="default">Sắp xếp: Mặc định</option>
+                                    <option value="price-asc">Giá: Thấp đến Cao</option>
+                                    <option value="price-desc">Giá: Cao đến Thấp</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="products-grid" id="catalog-products-grid">
+                            <!-- Injected dynamically via JS -->
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. PRODUCT DETAIL VIEW (SHOPDUNK STYLE) -->
+        <section id="detail-page" class="page-view" style="display:none;">
+            <div class="container">
+                <div class="detail-layout">
+                    <!-- Left Column: Product Image Gallery -->
+                    <div class="detail-gallery-col">
+                        <div class="detail-main-img-box">
+                            <img src="" id="detail-main-image" alt="Product Image">
+                        </div>
+                        <div class="detail-thumbnail-carousel" id="detail-thumbnail-carousel">
+                            <button class="detail-thumb-nav detail-thumb-prev" id="detail-thumbnails-prev" type="button" aria-label="Xem ảnh trước">‹</button>
+                            <div class="detail-thumbnails-row" id="detail-thumbnails-row">
+                                <!-- Thumbnails added dynamically -->
+                            </div>
+                            <button class="detail-thumb-nav detail-thumb-next" id="detail-thumbnails-next" type="button" aria-label="Xem ảnh tiếp theo">›</button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Configurations and details -->
+                    <div class="detail-info-col">
+                        <span class="detail-category-tag" id="detail-item-category">Phân khúc</span>
+                        <h2 class="detail-title-name" id="detail-item-name">Tên sản phẩm</h2>
+                        
+                        <div class="detail-rating-row">
+                            <span class="rating-text">4.9/5 đánh giá từ khách hàng</span>
+                        </div>
+
+                        <div class="detail-pricing-box">
+                            <span class="detail-price-val" id="detail-item-price">0đ</span>
+                            <span class="detail-stock-count" id="detail-item-stock">Tồn kho: 0 máy</span>
+                        </div>
+                        
+                        <div class="detail-code-ref">
+                            Mã sản phẩm (Odoo SKU): <span id="detail-item-ref" style="font-family: monospace;">SKU-000</span>
+                        </div>
+
+                        <!-- Config Options -->
+                        <div class="detail-options-box">
+                            <!-- Colors options -->
+                            <div class="option-group" id="color-option-group">
+                                <h5>Màu sắc hiện có: <span id="selected-color-label"></span></h5>
+                                <div class="options-row" id="color-options-row">
+                                    <!-- Injected via JS -->
+                                </div>
+                            </div>
+                            <!-- Capacities options -->
+                            <div class="option-group" id="capacity-option-group">
+                                <h5>Dung lượng lưu trữ:</h5>
+                                <div class="options-row" id="capacity-options-row">
+                                    <button class="capacity-pill active">256 GB</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Call To Actions -->
+                        <div class="detail-cta-box">
+                            <button class="btn btn-primary cta-buy-now-btn" id="detail-buy-now-btn">Mua ngay</button>
+                            <button class="btn btn-secondary cta-add-cart-btn" id="detail-add-cart-btn">Thêm vào giỏ hàng</button>
+                            <button class="btn btn-secondary cta-installment-btn" style="background-color: rgba(48, 209, 88, 0.15); color: var(--accent-green);">Trả góp 0%</button>
+                        </div>
+
+                        <!-- Technical Specs Table -->
+                        <div class="detail-specs-section">
+                            <h4>Thông số kỹ thuật</h4>
+                            <table class="specs-table">
+                                <tbody id="detail-specs-table-body">
+                                    <!-- Injected via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Cross-selling / Accessories -->
+                        <div class="detail-crosssell-section">
+                            <h4>Sản phẩm khuyên dùng mua kèm</h4>
+                            <div class="crosssell-list" id="detail-crosssell-list">
+                                <!-- Injected via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 4. CART PAGE VIEW -->
+        <section id="cart-page" class="page-view" style="display:none;">
+            <div class="container">
+                <h2 class="page-title">Giỏ hàng của bạn</h2>
+                <div class="cart-layout">
+                    <!-- Cart items list table -->
+                    <div class="cart-table-col">
+                        <table class="cart-full-table">
+                            <thead>
+                                <tr>
+                                    <th>Hình ảnh</th>
+                                    <th>Sản phẩm</th>
+                                    <th class="text-center">Số lượng</th>
+                                    <th class="text-right">Đơn giá</th>
+                                    <th class="text-right">Thành tiền</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-page-items-body">
+                                <!-- Injected via JS -->
+                            </tbody>
+                        </table>
+                        <div id="cart-page-empty-msg" class="text-center" style="display:none; padding:3rem 0;">
+                            <p style="color:var(--text-secondary); font-size:1.1rem; margin-bottom: 1.5rem;">Giỏ hàng của bạn đang trống.</p>
+                            <a href="#category/all" class="btn btn-primary">Mua sắm ngay</a>
+                        </div>
+                    </div>
+
+                    <!-- Cart checkout totals -->
+                    <div class="cart-summary-col">
+                        <div class="cart-summary-card">
+                            <h4>Chi tiết hóa đơn</h4>
+                            <div class="summary-line">
+                                <span>Tạm tính tiền hàng:</span>
+                                <span id="cart-page-subtotal">0đ</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Thuế GTGT / VAT (10%):</span>
+                                <span id="cart-page-vat">0đ</span>
+                            </div>
+                            <div class="summary-line total-line">
+                                <span>Tổng cộng thanh toán:</span>
+                                <span id="cart-page-grandtotal">0đ</span>
+                            </div>
+                            <a href="#checkout" class="btn btn-primary btn-checkout-page" id="cart-to-checkout-btn" style="width:100%; text-align:center; justify-content:center; margin-top:1.5rem;">
+                                Tiến hành thanh toán
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 5. CHECKOUT PAGE VIEW -->
+        <section id="checkout-page" class="page-view" style="display:none;">
+            <div class="container">
+                <h2 class="page-title">Thông tin giao hàng &amp; Thanh toán</h2>
+                <form id="checkout-page-form" onsubmit="event.preventDefault();">
+                    <div class="checkout-layout">
+                        <!-- Left form inputs -->
+                        <div class="checkout-form-col">
+                            <div class="checkout-card">
+                                <h4>Thông tin khách hàng</h4>
+                                <div class="form-grid">
+                                    <div class="form-field">
+                                        <label for="checkout-page-name">Họ và tên *</label>
+                                        <input type="text" id="checkout-page-name" placeholder="Nguyễn Văn A" required>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="checkout-page-phone">Số điện thoại *</label>
+                                        <input type="tel" id="checkout-page-phone" placeholder="0987654321" required>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="checkout-page-email">Email *</label>
+                                        <input type="email" id="checkout-page-email" placeholder="customer@nextgen.vn" required>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="checkout-page-address">Địa chỉ giao nhận *</label>
+                                        <input type="text" id="checkout-page-address" placeholder="Số nhà, Tên đường, Quận, Thành phố" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="checkout-card" style="margin-top: 1.5rem;">
+                                <h4>Phương thức thanh toán</h4>
+                                <div class="payment-methods-grid">
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment-method" value="COD" checked>
+                                        <div class="pay-option-content">
+                                            <div>
+                                                <strong>Thanh toán khi nhận hàng (COD)</strong>
+                                                <p>Thanh toán bằng tiền mặt khi shipper giao tới.</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment-method" value="BANK">
+                                        <div class="pay-option-content">
+                                            <div>
+                                                <strong>Chuyển khoản Ngân hàng</strong>
+                                                <p>Quét mã QR chuyển khoản nhanh 24/7.</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment-method" value="VNPAY">
+                                        <div class="pay-option-content">
+                                            <div>
+                                                <strong>Cổng thanh toán VNPay</strong>
+                                                <p>Ví điện tử hoặc Thẻ ATM, Visa, Mastercard.</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment-method" value="MOMO">
+                                        <div class="pay-option-content">
+                                            <div>
+                                                <strong>Ví điện tử MoMo</strong>
+                                                <p>Thanh toán nhanh bằng ứng dụng MoMo trên điện thoại.</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right order summary -->
+                        <div class="checkout-summary-col">
+                            <div class="checkout-card">
+                                <h4>Đơn hàng của bạn</h4>
+                                <div class="checkout-summary-items" id="checkout-summary-items-list">
+                                    <!-- Injected via JS -->
+                                </div>
+                                <div class="invoice-summary" style="border-top:1px solid var(--border-color); padding-top:1rem; margin-top:1rem;">
+                                    <div class="invoice-summary-row" style="display:flex; justify-content:space-between; margin-bottom: 6px; font-size:0.85rem; color:var(--text-secondary);">
+                                        <span>Tạm tính tiền hàng:</span>
+                                        <span id="checkout-subtotal">0đ</span>
+                                    </div>
+                                    <div class="invoice-summary-row" style="display:flex; justify-content:space-between; margin-bottom: 6px; font-size:0.85rem; color:var(--text-secondary);">
+                                        <span>Thuế GTGT / VAT (10%):</span>
+                                        <span id="checkout-vat">0đ</span>
+                                    </div>
+                                    <div class="invoice-summary-row total" style="display:flex; justify-content:space-between; font-weight:700; font-size:1.15rem; margin-top:10px; border-top:1px dashed var(--border-color); padding-top:10px;">
+                                        <span>Tổng thanh toán:</span>
+                                        <span id="checkout-grandtotal">0đ</span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="confirm-order-btn" style="width:100%; justify-content:center; margin-top:1.5rem; font-size:1rem;">
+                                    Xác nhận đặt hàng
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+
+        <!-- 6. CONTACT VIEW -->
+        <section id="contact-page" class="page-view" style="display:none;">
+            <div class="container">
+                <h2 class="page-title text-center">Liên hệ với NextGen Mobile Retail</h2>
+                <div class="contact-layout">
+                    <!-- Form -->
+                    <div class="contact-card">
+                        <h4>Gửi yêu cầu hỗ trợ</h4>
+                        <form id="contact-form" onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Yêu cầu của bạn đã được chuyển tới CRM của Odoo ERP.'); this.reset();">
+                            <div class="form-field">
+                                <label for="contact-name">Họ và tên *</label>
+                                <input type="text" id="contact-name" placeholder="Nguyễn Văn A" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="contact-email">Email *</label>
+                                <input type="email" id="contact-email" placeholder="nguyenvana@gmail.com" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="contact-subject">Chủ đề *</label>
+                                <input type="text" id="contact-subject" placeholder="Cần tư vấn mua iPhone 17 Pro Max" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="contact-msg">Nội dung tin nhắn *</label>
+                                <textarea id="contact-msg" placeholder="Nhập câu hỏi của bạn tại đây..." style="width:100%; height:120px; padding:0.6rem; border-radius:6px; border:1px solid var(--border-color); background:var(--bg-secondary); color:var(--text-primary);" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-top: 1rem; width:100%; justify-content:center;">Gửi liên hệ</button>
+                        </form>
+                    </div>
+
+                    <!-- Store Info & Map -->
+                    <div class="contact-card">
+                        <h4>Hệ thống cửa hàng NextGen</h4>
+                        <div class="store-details" style="font-size:0.9rem; line-height:1.6; display:flex; flex-direction:column; gap:10px;">
+                            <p><strong>Trụ sở chính:</strong> 123 Đường Ba Tháng Hai, Phường 11, Quận 10, TP. Hồ Chí Minh</p>
+                            <p><strong>Hotline tư vấn:</strong> 1900 8080 (08:00 - 21:30)</p>
+                            <p><strong>Email hỗ trợ:</strong> support@nextgen.vn</p>
+                            <p><strong>Vận hành ERP:</strong> Hệ thống ERP Odoo v17 - NextGen Mobile Integration</p>
+                        </div>
+                        <div class="store-map-placeholder" style="margin-top: 1.5rem; height:200px; background-color:var(--bg-tertiary); border-radius:10px; display:flex; justify-content:center; align-items:center; border:1px solid var(--border-color);">
+                            <span style="font-size:0.9rem; color:var(--text-secondary); text-align:center;">Bản đồ cửa hàng NextGen Mobile Retail<br><span style="font-size:0.75rem;">(Bản đồ thực tế đang được đồng bộ)</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 7. ADMIN & ODOO ERP DASHBOARD VIEW -->
+        <section id="admin-page" class="page-view" style="display:none;">
+            <div class="container">
+                <div class="admin-header">
+                    <h2 class="admin-title">Odoo v17 ERP - Bảng Điều Hành NextGen Retail</h2>
+                    <a href="#home" class="btn btn-secondary">Quay lại website bán hàng</a>
+                </div>
+
+                <!-- Stats summary KPIs -->
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <span class="stat-label">Doanh thu Odoo (Sales)</span>
+                        <div class="stat-val revenue" id="stat-revenue">0đ</div>
+                        <span class="stat-desc">Đơn bán hàng hoàn tất (Sales Orders)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Lợi nhuận gộp (Margin)</span>
+                        <div class="stat-val profit" id="stat-profit">0đ</div>
+                        <span class="stat-desc">Đã trừ chi phí nhập hàng (PO)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Tồn kho hiện tại (Inventory)</span>
+                        <div class="stat-val" id="stat-total-stock">0</div>
+                        <span class="stat-desc">Linh kiện &amp; Combo sẵn có</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Số đơn hàng (Accounting)</span>
+                        <div class="stat-val" id="stat-orders-count" style="color:var(--accent-purple);">0</div>
+                        <span class="stat-desc">Hóa đơn điện tử đã phát hành</span>
+                    </div>
+                </div>
+
+                <!-- Admin Tabs cards -->
+                <div class="admin-card">
+                    <div class="admin-tabs">
+                        <button class="admin-tab-btn active" data-tab="products-tab">Kho hàng &amp; Mua hàng (PO)</button>
+                        <button class="admin-tab-btn" data-tab="bom-mo-tab">Định mức BOM &amp; Đóng gói (MO)</button>
+                        <button class="admin-tab-btn" data-tab="imei-tab">Mã số IMEI</button>
+                        <button class="admin-tab-btn" data-tab="odoo-sync-tab">Sơ đồ Đồng bộ Odoo ERP</button>
+                        <button class="admin-tab-btn" data-tab="history-tab">Lịch sử MO &amp; PO</button>
+                    </div>
+
+                    <!-- Tab 1: Products and Stock replenishment -->
+                    <div class="admin-tab-content table-responsive" id="products-tab">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 10px;">
+                            <h4 style="font-size: 1.1rem; font-weight: 600;">Quản lý mức tồn kho linh kiện định mức (Min / Max Stock Alerts)</h4>
+                            <button class="btn btn-primary" id="auto-po-btn" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-radius: 8px;">
+                                Lập đơn PO Restock tự động
+                            </button>
+                        </div>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Mã hàng Odoo</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Kho lưu trữ</th>
+                                    <th>Vị trí kho</th>
+                                    <th class="text-center">Tồn hiện tại</th>
+                                    <th class="text-center">Tồn tối thiểu</th>
+                                    <th class="text-center">Tồn tối đa</th>
+                                    <th>Trạng thái</th>
+                                    <th>Nhập kho</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-products-table-body">
+                                <!-- Injected via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Tab 2: BOM & MO -->
+                    <div class="admin-tab-content" id="bom-mo-tab" style="display:none; padding: 0.5rem 0;">
+                        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem;">
+                            <!-- Left: BOM list -->
+                            <div>
+                                <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Định mức nguyên vật liệu (BOM Combo bán lẻ)</h4>
+                                <div id="bom-accordion-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                                    <!-- Injected via JS -->
+                                </div>
+                            </div>
+                            <!-- Right: Create MO Form -->
+                            <div style="background-color: var(--bg-tertiary); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); height: fit-content;">
+                                <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 6px;">Lập Lệnh Sản Xuất Đóng Gói (MO)</h4>
+                                <form id="mo-creation-form" onsubmit="event.preventDefault();">
+                                    <div style="margin-bottom: 1rem;">
+                                        <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px;">Chọn Combo đóng gói</label>
+                                        <select id="mo-combo-select" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border-color); background-color: var(--bg-secondary); color: var(--text-primary); font-size: 0.85rem;" required>
+                                            <!-- Option list -->
+                                        </select>
+                                    </div>
+                                    <div style="margin-bottom: 1rem;">
+                                        <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px;">Số lượng combo sản xuất</label>
+                                        <input type="number" id="mo-qty-input" min="1" value="1" style="width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border-color); background-color: var(--bg-secondary); color: var(--text-primary); font-size: 0.85rem;" required>
+                                    </div>
+                                    
+                                    <!-- Preview list -->
+                                    <div id="mo-preview-box" style="margin-bottom: 1.5rem; font-size: 0.8rem; background-color: var(--bg-secondary); padding: 0.75rem; border-radius: 6px; border: 1px solid var(--border-color); display:none;"></div>
+
+                                    <button type="submit" class="btn btn-primary" id="mo-submit-btn" style="width: 100%; justify-content: center; font-size: 0.85rem; border-radius: 8px;">
+                                        Phát lệnh sản xuất (Tạo lệnh MO)
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: IMEI Management -->
+                    <div class="admin-tab-content table-responsive" id="imei-tab" style="display:none;">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Số serial / IMEI</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Mã định danh SKU</th>
+                                    <th>Vòng đời</th>
+                                    <th>Lịch sử Odoo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-imei-table-body">
+                                <!-- Injected via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Tab 4: Odoo Sync visual flow charts -->
+                    <div class="admin-tab-content" id="odoo-sync-tab" style="display:none; padding: 1rem 0;">
+                        <h4 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 1.5rem; text-align:center;">
+                            Quy trình Tích hợp và Đồng bộ hóa Hệ sinh thái Odoo ERP
+                        </h4>
+                        
+                        <!-- Visual flow diagram using CSS Flex/Grid -->
+                        <div class="odoo-flow-diagram">
+                            <div class="flow-step">
+                                <div class="flow-circle orange-glow">Website</div>
+                                <span class="flow-desc">Khách đặt hàng</span>
+                            </div>
+                            <div class="flow-arrow"></div>
+                            <div class="flow-step">
+                                <div class="flow-circle blue-glow">Sales</div>
+                                <span class="flow-desc">Tạo Sales Order</span>
+                            </div>
+                            <div class="flow-arrow"></div>
+                            <div class="flow-step">
+                                <div class="flow-circle green-glow">Inventory</div>
+                                <span class="flow-desc">Trừ kho &amp; Cấp IMEI</span>
+                            </div>
+                            <div class="flow-arrow"></div>
+                            <div class="flow-step">
+                                <div class="flow-circle purple-glow">CRM</div>
+                                <span class="flow-desc">Đồng bộ liên hệ</span>
+                            </div>
+                            <div class="flow-arrow"></div>
+                            <div class="flow-step">
+                                <div class="flow-circle red-glow">Accounting</div>
+                                <span class="flow-desc">Xuất Hóa đơn VAT</span>
+                            </div>
+                        </div>
+
+                        <!-- Real-time database logs in Odoo style -->
+                        <div style="margin-top: 3rem; display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div style="background-color: var(--bg-tertiary); padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border-color);">
+                                <h5 style="font-weight:700; margin-bottom: 8px;">Đơn bán hàng gần đây (Sales Module)</h5>
+                                <div id="odoo-sales-log" style="font-size: 0.8rem; display:flex; flex-direction:column; gap:6px;">
+                                    <!-- Injected via JS -->
+                                </div>
+                            </div>
+                            <div style="background-color: var(--bg-tertiary); padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border-color);">
+                                <h5 style="font-weight:700; margin-bottom: 8px;">Khách hàng đồng bộ (CRM Module)</h5>
+                                <div id="odoo-crm-log" style="font-size: 0.8rem; display:flex; flex-direction:column; gap:6px;">
+                                    <!-- Injected via JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 5: Histories -->
+                    <div class="admin-tab-content" id="history-tab" style="display:none; padding: 0.5rem 0;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                            <div>
+                                <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Lịch sử Lệnh sản xuất đóng gói (MO)</h4>
+                                <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                                    <table class="admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã MO</th>
+                                                <th>Combo đóng gói</th>
+                                                <th class="text-center">Số lượng</th>
+                                                <th>Ngày sản xuất</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="admin-mo-history-table-body">
+                                            <!-- Injected via JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Lịch sử Đơn mua hàng PO (Restocking)</h4>
+                                <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                                    <table class="admin-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã PO</th>
+                                                <th>Sản phẩm nhập</th>
+                                                <th class="text-center">Số lượng</th>
+                                                <th>Chi phí mua</th>
+                                                <th>Ngày nhập hàng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="admin-po-history-table-body">
+                                            <!-- Injected via JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modals -->
+    <!-- Invoice Receipt Modal -->
+    <div class="modal-overlay" id="invoice-modal">
+        <div class="modal-box" style="max-width: 500px;">
+            <button class="modal-close" id="invoice-modal-close" style="background:#f5f5f7; color:#1d1d1f;">&times;</button>
+            <div class="invoice-box" id="invoice-receipt-content">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="campaign-modal">
+        <div class="modal-box campaign-modal-box">
+            <button class="modal-close" id="campaign-modal-close">&times;</button>
+            <div class="campaign-modal-body">
+                <div class="campaign-modal-image-wrap">
+                    <img src="" alt="" id="campaign-modal-image" class="campaign-modal-image">
+                </div>
+                <div class="campaign-modal-content">
+                    <span class="campaign-modal-kicker" id="campaign-modal-kicker"></span>
+                    <h3 class="campaign-modal-title" id="campaign-modal-title"></h3>
+                    <p class="campaign-modal-summary" id="campaign-modal-summary"></p>
+                    <div class="campaign-modal-meta-row">
+                        <div class="campaign-modal-meta-card">
+                            <span class="campaign-modal-meta-label">Thời gian áp dụng</span>
+                            <strong id="campaign-modal-period"></strong>
+                        </div>
+                        <div class="campaign-modal-meta-card">
+                            <span class="campaign-modal-meta-label">Phù hợp với</span>
+                            <strong id="campaign-modal-audience"></strong>
+                        </div>
+                    </div>
+                    <div class="campaign-modal-section">
+                        <h4>Quyền lợi nổi bật</h4>
+                        <ul id="campaign-modal-benefits"></ul>
+                    </div>
+                    <div class="campaign-modal-section">
+                        <h4>Điều kiện áp dụng</h4>
+                        <ul id="campaign-modal-terms"></ul>
+                    </div>
+                    <div class="campaign-modal-actions">
+                        <a href="#home" id="campaign-modal-target" class="btn btn-primary">Xem sản phẩm áp dụng</a>
+                        <button type="button" id="campaign-modal-dismiss" class="btn btn-secondary">Để tôi xem thêm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <h4> NEXTGEN Mobile Retail</h4>
+                <p style="font-size: 0.75rem; margin-top: 4px; max-width: 320px;">Hệ thống cung cấp thiết bị công nghệ Apple chính hãng, vận hành trên nền tảng Odoo ERP Enterprise v17.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#category/iPhone">iPhone</a></li>
+                <li><a href="#category/Macbook">MacBook</a></li>
+                <li><a href="#category/iPad">iPad</a></li>
+                <li><a href="#category/Phụ kiện">Phụ kiện</a></li>
+                <li><a href="#cart">Giỏ hàng</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+                <li><a href="#admin-odoo">Hệ thống Odoo ERP</a></li>
+            </ul>
+        </div>
+        <div class="container text-center" style="margin-top: 2rem; font-size: 0.75rem; color: var(--text-tertiary); padding-top: 1rem; border-top: 1px solid var(--border-color);">
+            &copy; 2026 NEXTGEN Mobile Retail. Vận hành bởi Odoo ERP. Tất cả quyền được bảo lưu.
+        </div>
+    </footer>
+
+    <script src="data/data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

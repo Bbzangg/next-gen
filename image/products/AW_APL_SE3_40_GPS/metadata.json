@@ -1,0 +1,93 @@
+{
+  "ref": "AW_APL_SE3_40_GPS",
+  "name": "Apple Watch SE 3 GPS",
+  "product_url": "https://shopdunk.com/apple-watch-se-3-nhom-gps-40mm-sport-band-size-sm",
+  "search_terms": [
+    "Apple Watch SE 3 GPS",
+    "Apple Watch SE 3"
+  ],
+  "downloaded_at": 1781364987,
+  "main_image": {
+    "source_url": "https://shopdunk.com/images/thumbs/0048610_apple-watch-se-3-nhom-gps-40mm-sport-band-size-sm_550.jpeg",
+    "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--main.jpeg"
+  },
+  "colors": [
+    {
+      "name": "Midnight",
+      "search_hits": [],
+      "gallery_images": [
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048611_midnight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--midnight--01.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048612_midnight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--midnight--02.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048613_midnight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--midnight--03.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048614_midnight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--midnight--04.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048615_midnight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--midnight--05.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048616_midnight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--midnight--06.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048617_midnight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--midnight--07.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048618_midnight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--midnight--08.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Starlight",
+      "search_hits": [],
+      "gallery_images": [
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048619_starlight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--starlight--01.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048620_starlight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--starlight--02.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048621_starlight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--starlight--03.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048622_starlight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--starlight--04.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048623_starlight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--starlight--05.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048624_starlight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--starlight--06.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048625_starlight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--starlight--07.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0048626_starlight_550.jpeg",
+          "local_path": "products/AW_APL_SE3_40_GPS/apple-watch-se-3-gps--starlight--08.jpeg"
+        }
+      ]
+    }
+  ],
+  "notes": []
+}

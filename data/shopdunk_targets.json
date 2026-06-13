@@ -1,0 +1,131 @@
+[
+  {
+    "ref": "IP_APL_IP15_128",
+    "name": "iPhone 15 128GB",
+    "product_url": "https://shopdunk.com/iphone-15-128gb",
+    "search_terms": ["iPhone 15 128GB"]
+  },
+  {
+    "ref": "IP_APL_IP16PRO_1TB",
+    "name": "iPhone 16 Pro 1TB",
+    "product_url": "https://shopdunk.com/iphone-16-pro-1tb",
+    "search_terms": ["iPhone 16 Pro 1TB", "iPhone 16 Pro 1TB Titan"]
+  },
+  {
+    "ref": "IP_APL_IP17_256",
+    "name": "iPhone 17 256GB",
+    "product_url": "https://shopdunk.com/dien-thoai-iphone-17-256gb",
+    "search_terms": ["iPhone 17 256GB"]
+  },
+  {
+    "ref": "IP_APL_IP17PM_256",
+    "name": "iPhone 17 Pro Max 256GB",
+    "product_url": "https://shopdunk.com/dien-thoai-iphone-17-pro-max-256gb",
+    "search_terms": ["iPhone 17 Pro Max 256GB"]
+  },
+  {
+    "ref": "IP_APL_IP17E_256",
+    "name": "iPhone 17e 256GB",
+    "product_url": "https://shopdunk.com/iphone-17e",
+    "search_terms": ["iPhone 17e 256GB"]
+  },
+  {
+    "ref": "IP_APL_IPAIR_256",
+    "name": "iPhone Air 256GB",
+    "product_url": "https://shopdunk.com/dien-thoai-iphone-air-256gb",
+    "search_terms": ["iPhone Air 256GB", "iPhone Air"]
+  },
+  {
+    "ref": "MB_APL_AIRM5_16_512",
+    "name": "MacBook Air 13 inch M5 16GB/512GB",
+    "product_url": "https://shopdunk.com/macbook-air-m5-13-inch-with-10-core-cpu-and-10-core-gpu-16gb-ram-512gb-ssd",
+    "search_terms": ["MacBook Air M5 13 inch 16GB 512GB", "Macbook Air 13-inch M5"]
+  },
+  {
+    "ref": "MB_APL_NEO13_8_256",
+    "name": "MacBook Neo 13 inch A18 Pro 8GB/256GB",
+    "product_url": "https://shopdunk.com/macbook-neo-13-inch-chip-a18-pro-with-6-core-cpu-and-5-core-gpu-8gb-ram-256gb-ssd",
+    "search_terms": ["Macbook Neo 13-inch chip A18 Pro 8GB RAM 256GB SSD"]
+  },
+  {
+    "ref": "MB_APL_PROM5_16_512",
+    "name": "MacBook Pro 14 inch M5 16GB/512GB/10GPU",
+    "product_url": "https://shopdunk.com/macbook-pro-14-inch-m5-2025-10-core-gpu-10-core-cpu-16gb-ram-512gb-ssd",
+    "search_terms": ["MacBook Pro 14 inch M5 16GB 512GB"]
+  },
+  {
+    "ref": "IPD_APL_A16_128_WIFI",
+    "name": "iPad A16 WiFi 128 GB",
+    "product_url": "https://shopdunk.com/ipad-a16-11-inch-wi-fi",
+    "search_terms": ["iPad A16 11 inch Wi-Fi", "iPad A16 WiFi 128GB"]
+  },
+  {
+    "ref": "IPD_APL_AIRM4_11_128",
+    "name": "iPad Air M4 11 inch WiFi 128GB",
+    "product_url": "https://shopdunk.com/ipad-air-m4-11-inch-wi-fi-v1",
+    "search_terms": ["iPad Air M4 11 inch WiFi 128GB", "iPad Air M4 11-inch Wi-Fi"]
+  },
+  {
+    "ref": "AP_APL_APMAX2",
+    "name": "AirPods Max 2",
+    "search_terms": ["AirPods Max 2", "AirPods Max"]
+  },
+  {
+    "ref": "AW_APL_SE3_40_GPS",
+    "name": "Apple Watch SE 3 GPS",
+    "product_url": "https://shopdunk.com/apple-watch-se-3-nhom-gps-40mm-sport-band-size-sm",
+    "search_terms": ["Apple Watch SE 3 GPS", "Apple Watch SE 3"]
+  },
+  {
+    "ref": "AW_APL_S11_42_GPS",
+    "name": "Apple Watch Series 11 GPS",
+    "search_terms": ["Apple Watch Series 11 GPS", "Apple Watch Series 11"]
+  },
+  {
+    "ref": "AP_APL_AP4",
+    "name": "AirPods 4",
+    "product_url": "https://shopdunk.com/tai-nghe-airpods-4",
+    "search_terms": ["AirPods 4", "Tai nghe AirPods 4"]
+  },
+  {
+    "ref": "AP_APL_APPRO3",
+    "name": "AirPods Pro 3",
+    "required_terms": ["AirPods Pro 3"],
+    "reject_terms": ["Ốp", "Case", "Pitaka", "Aramid"],
+    "search_terms": ["AirPods Pro 3", "Tai nghe AirPods Pro 3"]
+  },
+  {
+    "ref": "SAC_APL_USBC20W",
+    "name": "Adapter USB-C 20W",
+    "required_terms": ["20W"],
+    "reject_terms": ["30W"],
+    "search_terms": ["Adapter USB-C 20W Apple", "Sac USB-C 20W Apple", "Củ sạc USB-C 20W"]
+  },
+  {
+    "ref": "CAP_APL_TC1M",
+    "name": "Cáp sạc type C 1m",
+    "search_terms": ["Cáp sạc type C 1m Apple", "Cáp USB-C 1m Apple", "Cáp sạc USB-C 1m"]
+  },
+  {
+    "ref": "AT_APL_AIRTAG",
+    "name": "AirTag",
+    "search_terms": ["AirTag", "Apple AirTag"]
+  },
+  {
+    "ref": "PEN_APL_APPRO",
+    "name": "Apple Pencil Pro",
+    "required_terms": ["Apple Pencil Pro"],
+    "reject_terms": ["Cũ", "Cu dep", "Trôi", "TBH"],
+    "search_terms": ["Apple Pencil Pro"]
+  },
+  {
+    "ref": "OP_APL_IP17PM_MAG",
+    "name": "Ốp lưng MagSafe iPhone 17 Pro Max TechWoven Apple",
+    "search_terms": ["Ốp lưng MagSafe iPhone 17 Pro Max TechWoven Apple", "TechWoven iPhone 17 Pro Max"]
+  },
+  {
+    "ref": "DV_BAOHANH",
+    "name": "Gói bảo hành",
+    "search_terms": ["Gói bảo hành Apple", "AppleCare", "Bảo hành mở rộng"]
+  }
+]

@@ -1,0 +1,122 @@
+{
+  "ref": "IP_APL_IP17E_256",
+  "name": "iPhone 17e 256GB",
+  "product_url": "https://shopdunk.com/iphone-17e",
+  "search_terms": [
+    "iPhone 17e 256GB"
+  ],
+  "downloaded_at": 1781364973,
+  "main_image": {
+    "source_url": "https://shopdunk.com/images/thumbs/0056702_iphone-17e-256gb_550.jpeg",
+    "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--main.jpeg"
+  },
+  "colors": [
+    {
+      "name": "Pink",
+      "search_hits": [],
+      "gallery_images": [
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056678_pink_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--pink--01.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056679_pink_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--pink--02.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056680_pink_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--pink--03.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056683_pink_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--pink--04.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056684_pink_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--pink--05.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056685_pink_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--pink--06.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056686_pink_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--pink--07.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Black",
+      "search_hits": [],
+      "gallery_images": [
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056687_black_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--black--01.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056688_black_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--black--02.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056689_black_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--black--03.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056690_black_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--black--04.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056691_black_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--black--05.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056692_black_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--black--06.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056693_black_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--black--07.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056694_black_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--black--08.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "White",
+      "search_hits": [],
+      "gallery_images": [
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056695_white_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--white--01.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056696_white_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--white--02.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056697_white_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--white--03.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056698_white_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--white--04.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056699_white_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--white--05.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056700_white_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--white--06.jpeg"
+        },
+        {
+          "source_url": "https://shopdunk.com/images/thumbs/0056701_white_550.jpeg",
+          "local_path": "products/IP_APL_IP17E_256/iphone-17e-256gb--white--07.jpeg"
+        }
+      ]
+    }
+  ],
+  "notes": []
+}
