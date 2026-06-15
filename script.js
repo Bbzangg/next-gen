@@ -1621,6 +1621,7 @@ document.getElementById("checkout-page-form")?.addEventListener("submit", (e) =>
         customerEmail: email,
         customerAddress: address,
         paymentMethod: payment,
+        paymentConfirmed: false,
         timestamp: timestamp,
         items: orderItems,
         subtotal: subtotalVal,
@@ -1701,59 +1702,97 @@ function openInvoiceModal(order) {
 
     invoiceReceiptContent.innerHTML = `
         <div class="invoice-header">
-            <h3 class="invoice-title">Hóa Đơn Odoo ERP</h3>
+            <h3 class="invoice-title">HÓA ĐƠN ODOO ERP</h3>
+            <div class="invoice-status status-pending" id="invoice-status-badge">Chờ thanh toán</div>
             <p style="font-size: 0.8rem; color: #86868b; margin-top: 4px;">NextGen Apple Integration Store</p>
             <div class="invoice-meta">
                 <span>Mã Sales Order: <strong>#${order.orderId}</strong></span>
                 <span style="text-align: right;">Ngày xuất: <strong>${order.timestamp.toLocaleString('vi-VN')}</strong></span>
             </div>
         </div>
-        
-        <div class="invoice-section-title">Khách hàng CRM</div>
-        <div class="invoice-customer">
-            <strong>Họ tên:</strong> ${order.customerName}<br>
-            <strong>Điện thoại:</strong> ${order.customerPhone}<br>
-            <strong>Email:</strong> ${order.customerEmail}<br>
-            <strong>Địa chỉ:</strong> ${order.customerAddress}
+        <div class="invoice-lock-panel" id="invoice-lock-panel">
+            <div class="invoice-lock-message">
+                Hóa đơn đang ở trạng thái <strong>Chờ thanh toán</strong>.
+                Tick xác nhận bên dưới để hiện đầy đủ hóa đơn.
+            </div>
+            <label class="payment-confirmation-box invoice-confirmation-box" for="invoice-payment-confirmed-checkbox">
+                <input type="checkbox" id="invoice-payment-confirmed-checkbox">
+                <span>
+                    <strong>Tôi xác nhận đã thanh toán</strong>
+                    <small>Chỉ tick khi tiền đã được xác nhận, sau đó hóa đơn sẽ hiển thị.</small>
+                </span>
+            </label>
         </div>
 
-        <div class="invoice-section-title">Chi tiết mặt hàng</div>
-        <table class="invoice-table">
-            <thead>
-                <tr>
-                    <th style="width: 65%;">Sản phẩm / Combo</th>
-                    <th class="text-center" style="width: 10%;">SL</th>
-                    <th style="width: 25%; text-align: right;">Thành tiền</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${itemsHtml}
-            </tbody>
-        </table>
+        <div class="invoice-details-panel is-hidden" id="invoice-details-panel">
+            <div class="invoice-section-title">Khách hàng CRM</div>
+            <div class="invoice-customer">
+                <strong>Họ tên:</strong> ${order.customerName}<br>
+                <strong>Điện thoại:</strong> ${order.customerPhone}<br>
+                <strong>Email:</strong> ${order.customerEmail}<br>
+                <strong>Địa chỉ:</strong> ${order.customerAddress}
+            </div>
 
-        <div class="invoice-summary">
-            <div class="invoice-summary-row">
-                <span>Tạm tính hàng:</span>
-                <span>${formatVND(order.subtotal)}</span>
-            </div>
-            <div class="invoice-summary-row">
-                <span>Thuế hàng hóa GTGT / VAT (10%):</span>
-                <span>${formatVND(order.gst)}</span>
-            </div>
-            <div class="invoice-summary-row total">
-                <span>Thanh toán (${order.paymentMethod}):</span>
-                <span>${formatVND(order.total)}</span>
-            </div>
-        </div>
+            <div class="invoice-section-title">Chi tiết mặt hàng</div>
+            <table class="invoice-table">
+                <thead>
+                    <tr>
+                        <th style="width: 65%;">Sản phẩm / Combo</th>
+                        <th class="text-center" style="width: 10%;">SL</th>
+                        <th style="width: 25%; text-align: right;">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${itemsHtml}
+                </tbody>
+            </table>
 
-        <div class="invoice-footer">
-            <p>Hệ thống Odoo v17 đã kết chuyển đơn hàng thành công!</p>
-            <button class="btn btn-secondary" style="margin-top: 1.5rem; padding: 0.5rem 1rem; font-size: 0.8rem;" onclick="window.print();">
-                In biên nhận
-            </button>
+            <div class="invoice-summary">
+                <div class="invoice-summary-row">
+                    <span>Tạm tính hàng:</span>
+                    <span>${formatVND(order.subtotal)}</span>
+                </div>
+                <div class="invoice-summary-row">
+                    <span>Thuế hàng hóa GTGT / VAT (10%):</span>
+                    <span>${formatVND(order.gst)}</span>
+                </div>
+                <div class="invoice-summary-row total">
+                    <span>Thanh toán (${order.paymentMethod}):</span>
+                    <span>${formatVND(order.total)}</span>
+                </div>
+            </div>
+
+            <div class="invoice-footer">
+                <p>Hệ thống Odoo v17 đã kết chuyển đơn hàng thành công!</p>
+                <button class="btn btn-secondary" style="margin-top: 1.5rem; padding: 0.5rem 1rem; font-size: 0.8rem;" onclick="window.print();">
+                    In biên nhận
+                </button>
+            </div>
         </div>
     `;
-    
+
+    const invoiceConfirmCheckbox = document.getElementById("invoice-payment-confirmed-checkbox");
+    const invoiceStatusBadge = document.getElementById("invoice-status-badge");
+    const invoiceLockPanel = document.getElementById("invoice-lock-panel");
+    const invoiceDetailsPanel = document.getElementById("invoice-details-panel");
+
+    const syncInvoiceVisibility = () => {
+        const confirmed = invoiceConfirmCheckbox?.checked || false;
+        order.paymentConfirmed = confirmed;
+
+        if (invoiceStatusBadge) {
+            invoiceStatusBadge.textContent = confirmed ? "" : "Chờ thanh toán";
+            invoiceStatusBadge.classList.toggle("status-paid", confirmed);
+            invoiceStatusBadge.classList.toggle("status-pending", !confirmed);
+        }
+
+        invoiceLockPanel?.classList.toggle("is-hidden", confirmed);
+        invoiceDetailsPanel?.classList.toggle("is-hidden", !confirmed);
+    };
+
+    invoiceConfirmCheckbox?.addEventListener("change", syncInvoiceVisibility);
+    syncInvoiceVisibility();
+
     invoiceModal.classList.add("open");
 }
 
