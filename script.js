@@ -8,7 +8,44 @@ let purchaseOrders = [];
 
 // Odoo ERP Specific Simulation Logs
 let odooSalesLogs = [];
-let odooCrmLogs = [];
+const CRM_STORAGE_KEY = "nextgen_odoo_crm_logs";
+
+function loadCrmLogs() {
+    try {
+        const raw = localStorage.getItem(CRM_STORAGE_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) return [];
+        return parsed.map(log => ({
+            ...log,
+            date: log.date ? new Date(log.date) : new Date()
+        }));
+    } catch (error) {
+        console.warn("Unable to load CRM logs", error);
+        return [];
+    }
+}
+
+function saveCrmLogs() {
+    try {
+        localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(odooCrmLogs));
+    } catch (error) {
+        console.warn("Unable to save CRM logs", error);
+    }
+}
+
+let odooCrmLogs = loadCrmLogs();
+
+function getContactLogs() {
+    return odooCrmLogs.filter(log => log.type === "contact");
+}
+
+function normalizeContactLog(log) {
+    return {
+        ...log,
+        date: log.date instanceof Date ? log.date : new Date(log.date)
+    };
+}
 
 // Active Routing state
 let activePage = "home";
@@ -1640,6 +1677,7 @@ document.getElementById("checkout-page-form")?.addEventListener("submit", (e) =>
         phone: phone,
         date: timestamp
     });
+    saveCrmLogs();
 
     // Odoo Sales Order Sync
     odooSalesLogs.push({
@@ -1781,7 +1819,7 @@ function openInvoiceModal(order) {
         order.paymentConfirmed = confirmed;
 
         if (invoiceStatusBadge) {
-            invoiceStatusBadge.textContent = confirmed ? "" : "Chờ thanh toán";
+            invoiceStatusBadge.textContent = confirmed ? "Đã thanh toán" : "Chờ thanh toán";
             invoiceStatusBadge.classList.toggle("status-paid", confirmed);
             invoiceStatusBadge.classList.toggle("status-pending", !confirmed);
         }
@@ -1883,6 +1921,7 @@ function updateAdminStats() {
     renderAdminImeisTable();
     renderHistoryLogs();
     renderOdooSyncLogs();
+    renderContactLogs();
 }
 
 function renderAdminProductsTable() {
@@ -2307,15 +2346,57 @@ function renderOdooSyncLogs() {
                 el.style.borderBottom = "1px solid var(--border-color)";
                 el.style.backgroundColor = "var(--bg-secondary)";
                 el.style.borderRadius = "6px";
-                el.innerHTML = `
-                    <strong>${log.name}</strong> - ${log.email}<br>
-                    SĐT: ${log.phone} | <span style="color:var(--accent-purple); font-weight:600;">Đồng bộ Odoo Contacts</span><br>
-                    <span style="font-size:0.7rem; color:var(--text-tertiary);">Đồng bộ: ${log.date.toLocaleTimeString('vi-VN')}</span>
-                `;
+                if (log.type === "contact") {
+                    el.innerHTML = `
+                        <strong>${log.name}</strong> - ${log.email}<br>
+                        <span style="color:var(--accent-purple); font-weight:600;">Liên hệ hỗ trợ</span> | Chủ đề: ${log.subject}<br>
+                        <div style="margin-top:4px; color:var(--text-secondary); white-space:pre-wrap;">${log.message}</div>
+                        <span style="font-size:0.7rem; color:var(--text-tertiary);">Đã gửi: ${log.date.toLocaleString('vi-VN')}</span>
+                    `;
+                } else {
+                    el.innerHTML = `
+                        <strong>${log.name}</strong> - ${log.email}<br>
+                        SĐT: ${log.phone} | <span style="color:var(--accent-purple); font-weight:600;">Đồng bộ Odoo Contacts</span><br>
+                        <span style="font-size:0.7rem; color:var(--text-tertiary);">Đồng bộ: ${log.date.toLocaleTimeString('vi-VN')}</span>
+                    `;
+                }
                 crmLog.appendChild(el);
             });
         }
     }
+}
+
+function renderContactLogs() {
+    const list = document.getElementById("contact-logs-list");
+    if (!list) return;
+
+    const contactLogs = getContactLogs().map(normalizeContactLog).reverse();
+    list.innerHTML = "";
+
+    if (contactLogs.length === 0) {
+        list.innerHTML = '<div style="color:var(--text-tertiary);">Chưa có yêu cầu liên hệ nào.</div>';
+        return;
+    }
+
+    contactLogs.forEach(log => {
+        const card = document.createElement("div");
+        card.style.padding = "1rem";
+        card.style.border = "1px solid var(--border-color)";
+        card.style.borderRadius = "12px";
+        card.style.background = "var(--bg-tertiary)";
+        card.innerHTML = `
+            <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+                <strong>${log.name}</strong>
+                <span style="font-size:0.75rem; color:var(--text-tertiary);">${log.date.toLocaleString('vi-VN')}</span>
+            </div>
+            <div style="font-size:0.85rem; line-height:1.6;">
+                <div><strong>Email:</strong> ${log.email}</div>
+                <div><strong>Chủ đề:</strong> ${log.subject}</div>
+                <div style="margin-top:0.5rem; white-space:pre-wrap; color:var(--text-secondary);">${log.message}</div>
+            </div>
+        `;
+        list.appendChild(card);
+    });
 }
 
 // ---------------- Navigation Actions Binds ----------------
@@ -2323,6 +2404,56 @@ function renderOdooSyncLogs() {
 // Bind click on Admin Dashboard link toggle
 document.getElementById("admin-toggle-btn")?.addEventListener("click", () => {
     window.location.hash = "#admin-odoo";
+});
+
+document.getElementById("contact-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("contact-name")?.value.trim();
+    const email = document.getElementById("contact-email")?.value.trim();
+    const subject = document.getElementById("contact-subject")?.value.trim();
+    const message = document.getElementById("contact-msg")?.value.trim();
+
+    if (!name || !email || !subject || !message) return;
+
+    odooCrmLogs.push({
+        type: "contact",
+        name,
+        email,
+        subject,
+        message,
+        phone: "",
+        date: new Date(),
+        source: "contact-form"
+    });
+
+    saveCrmLogs();
+    renderOdooSyncLogs();
+    renderContactLogs();
+
+    alert("Cảm ơn bạn! Yêu cầu của bạn đã được lưu vào CRM.");
+    e.target.reset();
+});
+
+document.getElementById("export-contact-logs-btn")?.addEventListener("click", () => {
+    const contactLogs = getContactLogs();
+    const blob = new Blob([JSON.stringify(contactLogs, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `nextgen-contact-logs-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+});
+
+document.getElementById("clear-contact-logs-btn")?.addEventListener("click", () => {
+    if (!confirm("Xóa toàn bộ danh sách liên hệ đã lưu?")) return;
+    odooCrmLogs = odooCrmLogs.filter(log => log.type !== "contact");
+    saveCrmLogs();
+    renderOdooSyncLogs();
+    renderContactLogs();
 });
 
 // Search input triggers

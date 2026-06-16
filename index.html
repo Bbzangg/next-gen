@@ -499,7 +499,7 @@
                     <!-- Form -->
                     <div class="contact-card">
                         <h4>Gửi yêu cầu hỗ trợ</h4>
-                        <form id="contact-form" onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Yêu cầu của bạn đã được chuyển tới CRM của Odoo ERP.'); this.reset();">
+                        <form id="contact-form">
                             <div class="form-field">
                                 <label for="contact-name">Họ và tên *</label>
                                 <input type="text" id="contact-name" placeholder="Nguyễn Văn A" required>
@@ -577,6 +577,7 @@
                         <button class="admin-tab-btn" data-tab="bom-mo-tab">Định mức BOM &amp; Đóng gói (MO)</button>
                         <button class="admin-tab-btn" data-tab="imei-tab">Mã số IMEI</button>
                         <button class="admin-tab-btn" data-tab="odoo-sync-tab">Sơ đồ Đồng bộ Odoo ERP</button>
+                        <button class="admin-tab-btn" data-tab="contact-logs-tab">Liên hệ hỗ trợ</button>
                         <button class="admin-tab-btn" data-tab="history-tab">Lịch sử MO &amp; PO</button>
                     </div>
 
@@ -713,7 +714,21 @@
                         </div>
                     </div>
 
-                    <!-- Tab 5: Histories -->
+                    <!-- Tab 5: Contact submissions -->
+                    <div class="admin-tab-content" id="contact-logs-tab" style="display:none; padding: 1rem 0;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:1rem;">
+                            <h4 style="font-size: 1.15rem; font-weight: 600; margin: 0;">Yêu cầu liên hệ hỗ trợ</h4>
+                            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                                <button class="btn btn-secondary" id="export-contact-logs-btn" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-radius: 8px;">Xuất JSON</button>
+                                <button class="btn btn-secondary" id="clear-contact-logs-btn" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-radius: 8px;">Xóa danh sách</button>
+                            </div>
+                        </div>
+                        <div id="contact-logs-list" style="display:flex; flex-direction:column; gap:12px;">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Tab 6: Histories -->
                     <div class="admin-tab-content" id="history-tab" style="display:none; padding: 0.5rem 0;">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                             <div>
