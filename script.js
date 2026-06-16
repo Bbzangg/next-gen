@@ -47,11 +47,32 @@ function normalizeContactLog(log) {
     };
 }
 
+function setAdminTab(tabId) {
+    activeAdminTab = tabId;
+    document.querySelectorAll(".admin-tab-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === tabId);
+    });
+
+    document.querySelectorAll(".admin-tab-content").forEach(tab => {
+        tab.style.display = tab.id === tabId ? "block" : "none";
+    });
+
+    if (tabId === "contact-logs-tab") {
+        renderContactLogs();
+    }
+}
+
+function openContactLogsInERP() {
+    window.location.hash = "#admin-odoo";
+    setTimeout(() => setAdminTab("contact-logs-tab"), 0);
+}
+
 // Active Routing state
 let activePage = "home";
 let activeCategoryParam = "all";
 let activeProductRef = "";
 let searchQuery = "";
+let activeAdminTab = "products-tab";
 
 // Promotional slider state
 let currentSlide = 0;
@@ -902,6 +923,9 @@ function triggerPageRenders() {
         updateAdminStats();
         initBomFormDropdown();
         renderBomAccordion();
+        setAdminTab(activeAdminTab);
+    } else if (activePage === "contact") {
+        renderContactRecentList();
     }
 }
 
@@ -2399,11 +2423,54 @@ function renderContactLogs() {
     });
 }
 
+function renderContactRecentList() {
+    const list = document.getElementById("contact-recent-list");
+    if (!list) return;
+
+    const contactLogs = getContactLogs().map(normalizeContactLog).reverse().slice(0, 3);
+    list.innerHTML = "";
+
+    if (contactLogs.length === 0) {
+        list.innerHTML = '<div style="color:var(--text-tertiary);">Chưa có yêu cầu nào được gửi.</div>';
+        return;
+    }
+
+    contactLogs.forEach(log => {
+        const row = document.createElement("div");
+        row.style.padding = "0.9rem 1rem";
+        row.style.border = "1px solid var(--border-color)";
+        row.style.borderRadius = "10px";
+        row.style.background = "var(--bg-secondary)";
+        row.innerHTML = `
+            <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+                <strong>${log.name}</strong>
+                <span style="font-size:0.72rem; color:var(--text-tertiary);">${log.date.toLocaleString('vi-VN')}</span>
+            </div>
+            <div style="font-size:0.82rem; color:var(--text-secondary); margin-top:0.35rem;">
+                <div><strong>Chủ đề:</strong> ${log.subject}</div>
+                <div style="white-space:pre-wrap; margin-top:0.35rem;">${log.message}</div>
+            </div>
+        `;
+        list.appendChild(row);
+    });
+}
+
 // ---------------- Navigation Actions Binds ----------------
 
 // Bind click on Admin Dashboard link toggle
 document.getElementById("admin-toggle-btn")?.addEventListener("click", () => {
     window.location.hash = "#admin-odoo";
+});
+
+document.addEventListener("click", (e) => {
+    const tabBtn = e.target.closest?.(".admin-tab-btn");
+    if (!tabBtn) return;
+    setAdminTab(tabBtn.dataset.tab);
+});
+
+document.getElementById("open-contact-logs-btn")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    openContactLogsInERP();
 });
 
 document.getElementById("contact-form")?.addEventListener("submit", (e) => {
@@ -2430,9 +2497,12 @@ document.getElementById("contact-form")?.addEventListener("submit", (e) => {
     saveCrmLogs();
     renderOdooSyncLogs();
     renderContactLogs();
+    renderContactRecentList();
 
     alert("Cảm ơn bạn! Yêu cầu của bạn đã được lưu vào CRM.");
     e.target.reset();
+
+    openContactLogsInERP();
 });
 
 document.getElementById("export-contact-logs-btn")?.addEventListener("click", () => {
@@ -2454,6 +2524,7 @@ document.getElementById("clear-contact-logs-btn")?.addEventListener("click", () 
     saveCrmLogs();
     renderOdooSyncLogs();
     renderContactLogs();
+    renderContactRecentList();
 });
 
 // Search input triggers
